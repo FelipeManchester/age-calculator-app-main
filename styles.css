@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  --White: hsl(0, 0%, 100%);
+  --Off-white: hsl(0, 0%, 94%);
+  --Light-grey: hsl(0, 0%, 86%);
+  --Smokey-grey: hsl(0, 1%, 44%);
+  --Off-black: hsl(0, 0%, 8%);
+  --Purple: hsl(259, 100%, 65%);
+  --Light-red: hsl(0, 100%, 67%);
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  background-color: var(--Off-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: var(--White);
+  width: 560px;
+  height: 460px;
+  border-radius: 18px 18px 150px 18px;
+  padding: 2rem;
+}
+
+.date-text {
+  display: flex;
+  gap: 6rem;
+}
+
+.date-number {
+  display: flex;
+  gap: 2rem;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+input {
+  width: 6.25rem;
+  height: 2.5rem;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+p {
+  color: var(--Smokey-grey);
+  font-size: 0.75rem;
+}
+
+button {
+  border-radius: 50%;
+  border: 0;
+  background-color: var(--Purple);
+}
