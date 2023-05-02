@@ -74,7 +74,7 @@ input::-webkit-inner-spin-button {
   position: absolute;
   top: 25%;
   width: 81.2%;
-  height: 1 px;
+  height: 1px;
   background: var(--Off-white);
   z-index: 4;
 }
