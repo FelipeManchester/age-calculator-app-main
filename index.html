@@ -23,26 +23,25 @@
         <p>YEAR</p>
       </div>
       <div class="date-number">
+        <input type="number" name="day" id="day" placeholder="DD" value="28">
 
-        <input type="number" name="day" id="day" placeholder="DD">
+        <input type="number" name="month" id="month" placeholder="MM" value="09">
 
-        <input type="number" name="month" id="month" placeholder="MM">
-
-        <input type="number" name="year" id="year" placeholder="YYYY">
+        <input type="number" name="year" id="year" placeholder="YYYY" value="1993">
       </div>
       <div class="button">
-        <button><svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44">
+        <button id="calculate" onclick="calculateAge()"><svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44">
             <g fill="none" stroke="#FFF" stroke-width="2">
               <path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44" />
             </g>
           </svg></button>
       </div>
       <div class="result">
-        <span>--</span>
+        <span id="resultYear">--</span>
         <h1>years</h1>
-        <span>--</span>
+        <span id="resultMonth">--</span>
         <h1>months</h1>
-        <span>--</span>
+        <span id="resultDay">--</span>
         <h1>days</h1>
       </div>
     </div>
@@ -53,6 +52,7 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="https://www.linkedin.com/in/felipemanchester">Felipe Manchester</a>.
   </footer>
+  <script src="scripts.js"></script>
 </body>
 
 </html>
