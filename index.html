@@ -23,11 +23,13 @@
         <p>YEAR</p>
       </div>
       <div class="date-number">
-        <input type="number" name="day" id="day" placeholder="DD" value="28">
-
-        <input type="number" name="month" id="month" placeholder="MM" value="09">
-
-        <input type="number" name="year" id="year" placeholder="YYYY" value="1993">
+        <input type="number" name="day" id="day" placeholder="DD">
+        <span id="errorDay"></span>
+        <input type="number" name="month" id="month" placeholder="MM">
+        <span id="errorMonth"></span>
+        <input type="number" name="year" id="year" placeholder="YYYY">
+        <span id="errorYear"></span>
+        <span id="errorMessage"></span>
       </div>
       <div class="button">
         <button id="calculate" onclick="calculateAge()"><svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44">

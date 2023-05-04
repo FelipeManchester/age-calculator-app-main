@@ -1,43 +1,70 @@
-function calculateAge(day, month, year) {
-  // create date object with the input values and set the time to the current time
-  const birthDate = new Date(
-    year,
-    month - 1,
-    day,
-    new Date().getHours(),
-    new Date().getMinutes(),
-    new Date().getSeconds(),
-    new Date().getMilliseconds()
-  );
-  // get today's date
-  const today = new Date();
-  // calculate the difference between today's date and the birth date in days
-  const diffTime = Math.abs(today - birthDate);
-  // calculate age in years, months, and days
-  let ageInYears = today.getFullYear() - birthDate.getFullYear();
-  let ageInMonths = today.getMonth() - birthDate.getMonth();
-  let ageInDays = today.getDate() - birthDate.getDate();
-  if (ageInDays < 0) {
-    ageInMonths--;
-    ageInDays += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
-  }
-  if (ageInMonths < 0) {
-    ageInYears--;
-    ageInMonths += 12;
-  }
-  // display the results
-  const resultYear = document.getElementById("resultYear");
-  resultYear.innerHTML = ageInYears;
-  const resultMonth = document.getElementById("resultMonth");
-  resultMonth.innerHTML = ageInMonths;
-  const resultDay = document.getElementById("resultDay");
-  resultDay.innerHTML = ageInDays;
-}
+const dayInput = document.getElementById("day");
+const monthInput = document.getElementById("month");
+const yearInput = document.getElementById("year");
 
-const calculateButton = document.getElementById("calculate");
-calculateButton.addEventListener("click", function () {
-  const day = parseInt(document.getElementById("day").value);
-  const month = parseInt(document.getElementById("month").value);
-  const year = parseInt(document.getElementById("year").value);
-  calculateAge(day, month, year);
-});
+const errorDay = document.getElementById("errorDay");
+const errorMonth = document.getElementById("errorMonth");
+const errorYear = document.getElementById("errorYear");
+const errorMessage = document.getElementById("errorMessage");
+
+const resultYear = document.getElementById("resultYear");
+const resultMonth = document.getElementById("resultMonth");
+const resultDay = document.getElementById("resultDay");
+
+const calculateButton = document.getElementById("calculateButton");
+calculateButton.addEventListener("click", calculateAge);
+
+function calculateAge() {
+  const day = Number(dayInput.value);
+  const month = Number(monthInput.value);
+  const year = Number(yearInput.value);
+
+  const today = new Date();
+
+  // Clear all error messages at the beginning of the function
+  errorDay.textContent = "";
+  errorMonth.textContent = "";
+  errorYear.textContent = "";
+  errorMessage.textContent = "";
+
+  // Keep track of any errors encountered
+  const errors = [];
+
+  if (month > 12 || month < 1) {
+    errors.push("Must be a valid month");
+  }
+
+  if (year > today.getFullYear()) {
+    errors.push("Must be from the past");
+  }
+
+  if (day > 31 || day < 1) {
+    errors.push("Must be a valid day");
+  }
+
+  // Check for validity of the date only if no other errors were encountered
+  if (errors.length === 0) {
+    const birthDate = new Date(year, month - 1, day);
+
+    if (
+      birthDate.getMonth() !== month - 1 ||
+      birthDate.getFullYear() !== year ||
+      birthDate.getDate() !== day
+    ) {
+      errors.push("Must be a valid date");
+    }
+  }
+
+  // Display all error messages if any errors were encountered
+  if (errors.length > 0) {
+    errorMessage.textContent = errors.join(". ");
+    return;
+  }
+
+  const ageInMilliseconds = today - new Date(year, month - 1, day);
+  const ageDate = new Date(ageInMilliseconds);
+
+  resultYear.textContent = Math.abs(ageDate.getUTCFullYear() - 1970);
+  resultMonth.textContent = ageDate.getUTCMonth();
+  resultDay.textContent = ageDate.getUTCDate();
+}

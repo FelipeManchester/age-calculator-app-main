@@ -115,6 +115,13 @@ p {
   letter-spacing: 0.2rem;
 }
 
+p.active {
+  color: var(--Light-red);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.2rem;
+}
+
 button {
   border-radius: 50%;
   border: 0;
@@ -128,4 +135,37 @@ button {
 
 button:hover {
   background: var(--Off-black);
+}
+
+#errorDay {
+  color: var(--Light-red);
+  position: absolute;
+  top: 22%;
+  font-style: italic;
+  font-family: "Poppins", sans-serif;
+}
+
+#errorMonth {
+  color: var(--Light-red);
+  position: absolute;
+  top: 22%;
+  font-style: italic;
+  font-family: "Poppins", sans-serif;
+}
+
+#errorYear {
+  color: var(--Light-red);
+  position: absolute;
+  top: 22%;
+  right: 28%;
+  font-style: italic;
+  font-family: "Poppins", sans-serif;
+}
+
+#errorMessage {
+  color: var(--Light-red);
+  position: absolute;
+  top: 22%;
+  font-style: italic;
+  font-family: "Poppins", sans-serif;
 }
