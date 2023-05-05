@@ -23,12 +23,16 @@ main {
 input {
   width: 10rem;
   height: 4rem;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 1.5rem;
   border: 1px solid var(--Light-grey);
   caret-color: var(--Purple);
   font-size: 2rem;
   outline: none;
+}
+
+input.active {
+  border: 1px solid var(--Light-red);
 }
 
 input:focus {
@@ -72,6 +76,10 @@ input::-webkit-inner-spin-button {
   display: flex;
   gap: 2rem;
   margin-top: 0.5rem;
+}
+
+.date-number span {
+  font-size: 0.75rem;
 }
 
 .button {
@@ -157,7 +165,7 @@ button:hover {
   color: var(--Light-red);
   position: absolute;
   top: 22%;
-  right: 28%;
+  right: 30%;
   font-style: italic;
   font-family: "Poppins", sans-serif;
 }
